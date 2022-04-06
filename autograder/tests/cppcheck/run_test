@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+#  execute the test -- you would most likely execute on submitted file
+#  for example: cppcheck ../student_file.h <options>
+
+# src code references
+source='cppcheck.cpp
+  ../redirect_io.h 
+  ../P1.h ../P1.cpp
+  ../P2.h ../P2.cpp
+  ../P3.h ../P3.cpp
+  ../P4.h ../P4.cpp
+  ../P5.h ../P5.cpp
+  ../P6.h ../P6.cpp
+  ../P7.h ../P7.cpp
+  ../P8.h ../P8.cpp
+  ../P9.h ../P9.cpp
+  ../P10.h ../P10.cpp
+  '
+
+cppcheck ${source} -x c++ --enable=all --verbose --error-exitcode=1 --suppressions-list=suppressions.txt

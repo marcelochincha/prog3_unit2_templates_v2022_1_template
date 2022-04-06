@@ -1,0 +1,4 @@
+#input
+#output
+    Los valores de mp son: {{a: 10}, {b: 20}, {c: 30}}
+#endtest

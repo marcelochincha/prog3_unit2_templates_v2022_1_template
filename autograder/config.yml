@@ -1,0 +1,22 @@
+limit_submissions: -1
+required_files: 
+  - P1.cpp
+  - P1.h
+  - P2.cpp
+  - P2.h
+  - P3.cpp
+  - P3.h
+  - P4.cpp
+  - P4.h
+  - P5.cpp
+  - P5.h
+  - P6.cpp
+  - P6.h
+  - P7.cpp
+  - P7.h
+  - P8.cpp
+  - P8.h
+  - P9.cpp
+  - P9.h
+  - P10.cpp
+  - P10.h
