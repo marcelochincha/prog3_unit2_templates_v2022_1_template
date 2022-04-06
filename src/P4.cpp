@@ -7,6 +7,3 @@
 using namespace std;
 
 
-void question_4(){
-
-}
