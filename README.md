@@ -1,4 +1,4 @@
-# Task #2: Templates  
+# Task #2: Templates
 **course:** Programación III  
 **unit:** 1  
 **cmake project:** prog3_unit2_templates_v2022_1
@@ -82,29 +82,29 @@ cout << *sp2 << endl;
 **Use Case #2:**
 ```cpp
     class point {
-        int x;
-        int y;
-    public:
-        point(int x, int y): x{x}, y{y} {}
-        point() = default;
-        
-        friend ostream& operator<< (ostream& os, const point& p) {
-            os << "{" << x <<", " << y << "}" << endl;
-            return os;
-        }
+int x;
+int y;
+public:
+point(int x, int y): x{x}, y{y} {}
+point() = default;
 
-        int get_x() { return x; }
-        int get_y() { return y; }
-    };
+friend ostream& operator<< (ostream& os, const point& p) {
+os << "{" << x <<", " << y << "}" << endl;
+return os;
+}
 
-    smart_ptr<point> sp1; // puntero inteligente no inicializado
-    sp1 = make_smart_ptr<point>(20, 30);
-    
-    cout << *sp1 << endl;   // Imprimiendo el contenido
+int get_x() { return x; }
+int get_y() { return y; }
+};
 
-    smart_ptr<point> sp2 = make_smart_ptr<point>(10, 40); // puntero inteligente no inicializado
-    cout << sp2->get_x() << endl;
-    cout << sp2->get_y() << endl;
+smart_ptr<point> sp1; // puntero inteligente no inicializado
+sp1 = make_smart_ptr<point>(20, 30);
+
+cout << *sp1 << endl;   // Imprimiendo el contenido
+
+smart_ptr<point> sp2 = make_smart_ptr<point>(10, 40); // puntero inteligente no inicializado
+cout << sp2->get_x() << endl;
+cout << sp2->get_y() << endl;
 ```
 
 ## Question #5 - suma producto (2 points)
@@ -268,5 +268,51 @@ Generar un template función `init_array` que inicie un arreglo estático de cua
     std::cout << std::endl;
     // output: 2 4 6 4 5 6
 ```
-## Question #10 - Pendiente de Definir (2 points)
+## Question #10 - Búsqueda binaria (2 points)
 
+Desarrollar el template de clase `searcher` que permita ordenar los valores al momento de crear el research o al momento de asignarle un arreglo o contenedor y realice la búsqueda de la posición de un valor en un contenedor del tipo secuencia como:
+- `std::array`
+- `std::vector`
+
+En caso el valor no sea encontrado, la posición que se devolverá será -1.
+
+**Use Case #1:**
+```cpp
+    array<int, 4> arr = { 40, 10, 25, 20 };
+    searcher<array<int, 4>> s = arr;
+    for (const auto& i: arr)
+        cout << i << " ";
+    cout << endl;                // 10 20 25 40
+    auto index = (s << 10);
+    cout << index << endl;      // 0
+```
+
+**Use Case #2:**
+```cpp
+    vector<int> vec = {5, 1, 2, 3, 5, 7, 7};
+    searcher<vector<int>> s = vec;
+    for (const auto& i: vec)
+        cout << i << " ";
+    cout << endl;                // 1 2 3 5 5 7 7
+    cout << (s << 10) << endl;  // -1
+```
+
+**Use Case #3:**
+```cpp
+    vector<double> vec = {5, 1, 2, 3, 5, 4, 7, -1};
+    searcher<vector<double>> s = vec;
+    for (const auto& i: vec)
+        cout << i << " ";
+    cout << endl;               // -1 1 2 3 4 5 5 7
+    cout << (s << 3) << endl;  // 3
+```
+
+**Use Case #4:**
+```cpp
+    array<float, 8> arr = {-1, 1, 2, 3, 5, 4, 7, 8};
+    searcher<array<float, 8>> s = arr;
+    for (const auto& i: arr)
+        cout << i << " ";
+    cout << endl;               // -1 1 2 3 4 5 7 8
+    cout << (s << 2) << endl;   // 2
+```
