@@ -8,5 +8,5 @@ using namespace std;
 
 void P6(){
     cout << "Start" << endl;
-    cout << index_of<int, float, int>(1) << endl;
+    cout << get_index<char,int,string>() << endl;
 }
