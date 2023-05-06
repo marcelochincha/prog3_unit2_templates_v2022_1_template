@@ -10,38 +10,17 @@
 #include <type_traits>
 using namespace std;
 
-
-template <typename T>
-int get_index() {
-    return -1;
-}
-
-template <typename T, typename U, typename ...Args>
-int get_index() {
-    if (std::is_same_v<T, U>) {
-        return sizeof...(Args);
-    } else {
-        return get_index<T, Args...>();
+template <typename P, typename ...Args, typename T>
+int index_of(T arg,int index = 0){
+    //cout << "Index: " << index << endl;
+    if(is_same<P,T>::value){
+        //cout << "P equals T" << endl;
+        return index;
+    }else if (sizeof...(Args) == 0){
+        return -1;
     }
+    return index_of<Args...,T>(arg,index + 1);
 }
-
-
-/*
-template <typename U,typename T>
-int index_of(U a, int in = 0){
-    cout << "index_of 1" << endl;
-    if(typeid(T) == typeid(a))
-        return in;
-    return -1;
-}
-
-template <typename U,typename ...Args,typename T>
-int index_of(U a,int in = 0){
-    if(typeid(T) == typeid(a))
-        return in;
-    else
-        return index_of<Args...>(a,in+1);
-}*/
 
 void P6();
 
