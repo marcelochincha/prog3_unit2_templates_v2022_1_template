@@ -12,14 +12,17 @@ using namespace std;
 //template <typename T,typename R>
 
 
-template <typename T,typename ...Args>
-bool are_same(){
-    if (sizeof...(Args) == 0){
-        return true;
-    }
-    //else if constexpr (sizeof...(Args) == 1)
-    //    return is_same<T,Args...>::value;
-}	
+template <typename T, typename R, typename... Args> 
+bool check() {
+  return is_same<T, R>::value;
+}
+
+template <typename T,typename... Args>
+bool are_same() {
+    if constexpr (sizeof...(Args) > 0)
+        return check<T,Args...>() && are_same<Args...>();
+    return true;
+}
 
 void P8();
 

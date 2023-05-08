@@ -3,10 +3,12 @@
 //
 
 #include <iostream>
+#include <vector>
 #include "P8.h"
 using namespace std;
 
 void P8(){
     cout << "START!\n";
-    cout << boolalpha << are_same<int>() << endl;
+    cout << boolalpha << are_same<int,char>() << endl;
+    cout << boolalpha << are_same<vector<int>, vector<int> , vector<int>>() << endl; // true
 }
