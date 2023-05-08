@@ -6,3 +6,7 @@
 #include "P8.h"
 using namespace std;
 
+void P8(){
+    cout << "START!\n";
+    cout << boolalpha << are_same<int>() << endl;
+}
