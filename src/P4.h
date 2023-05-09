@@ -5,6 +5,9 @@
 #ifndef PROG3_UNIT2_TEMPLATES_V2022_1_P4_H
 #define PROG3_UNIT2_TEMPLATES_V2022_1_P4_H
 
+#include <iostream>
+using namespace std;
+
 template <typename T>
 class smart_ptr {
     T* ptr = nullptr;
@@ -52,8 +55,23 @@ smart_ptr<U> make_smart_ptr(Args&&... args){
     smart_ptr<U> newPtr;
     newPtr.ptr = new U(std::forward<Args>(args)...);
     return newPtr;
-}
+};
 
+class point {
+    int x;
+    int y;
+    public:
+        point(int x, int y): x{x}, y{y} {}
+        point() = default;
+
+        friend ostream& operator<< (ostream& os, const point& p) {
+            os << "{" << p.x <<", " << p.y << "}" << endl;
+            return os;
+        }
+
+        int get_x() { return x; }
+        int get_y() { return y; }
+};
 
 
 void P4();

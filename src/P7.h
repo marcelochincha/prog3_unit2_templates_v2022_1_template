@@ -21,7 +21,7 @@ ostream &show_dynamic(ostream &os, container<T> cont) {
   for (auto it = cont.begin(); it != cont.end(); it++){
     os << *it;
     if(it != prev(cont.end()))
-      os << " ";
+      os << ", ";
   }
   os << "}";
   return os;
@@ -44,7 +44,7 @@ ostream &operator<<(ostream &os,array<T,len> arr){
   for (auto it = begin(arr); it != end(arr); it++){
         os << *it;
         if (it != prev(end(arr)))
-            os << " ";
+            os << ", ";
     }
   os << "}";
   return os;
@@ -57,7 +57,7 @@ ostream &operator<<(ostream &os, map<T, U> map) {
   for (auto it = map.begin(); it != map.end(); it++){
     os << it->first << ":" << it->second;
     if(it != prev(map.end()))
-      os << " ";
+      os << ", ";
   }
   os << "}";
   return os;

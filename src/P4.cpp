@@ -5,23 +5,6 @@
 #include <iostream>
 #include "P4.h"
 using namespace std;
-
-    class point {
-        int x;
-        int y;
-        public:
-        point(int x, int y): x{x}, y{y} {}
-        point() = default;
-
-        friend ostream& operator<<(ostream& os, const point& p) {
-            os << "{" << p.x <<", " << p.y << "}" << endl;
-            return os;
-        }
-
-        int get_x() { return x; }
-        int get_y() { return y; }
-    };
-
 void P4(){
 
 

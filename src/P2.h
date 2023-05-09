@@ -12,7 +12,9 @@ using namespace std;
 template<typename Iter>
 void print(Iter vI, Iter vF,ostream &os,string delimiter){
     for (auto i = vI; i != vF; i++) {
-        os << *i << delimiter;
+        if (i != vI)
+            os << delimiter;
+        os << *i;
     }
     os << endl;
 }
