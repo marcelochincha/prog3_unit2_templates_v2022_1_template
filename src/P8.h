@@ -19,9 +19,10 @@ bool check() {
 
 template <typename T,typename... Args>
 bool are_same() {
-    if(sizeof...(Args) == 0)
+    if constexpr (sizeof...(Args) == 0)
         return true;
-    return check<T,Args...>() && are_same<Args...>();
+    else
+      return check<T,Args...>() && are_same<Args...>();
 }
 
 void P8();
