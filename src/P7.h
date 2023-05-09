@@ -28,12 +28,12 @@ ostream &show_dynamic(ostream &os, container<T> cont) {
 }
 
 template <typename T> 
-ostream &operator<<(ostream &os, vector<T> vec) {
+ostream &operator<<(ostream &os,const vector<T> &vec) {
   return show_dynamic(os, vec);
 }
 
 template <typename T> 
-ostream &operator<<(ostream &os, list<T> lst) {
+ostream &operator<<(ostream &os,const list<T> &lst) {
   return show_dynamic(os, lst);
 }
 
@@ -55,7 +55,7 @@ template <typename T, typename U>
 ostream &operator<<(ostream &os, map<T, U> map) {
   os << "{";
   for (auto it = map.begin(); it != map.end(); it++){
-    os << it->first << ":" << it->second;
+    os << "{" << it->first << ": " << it->second << "}";
     if(it != prev(map.end()))
       os << ", ";
   }

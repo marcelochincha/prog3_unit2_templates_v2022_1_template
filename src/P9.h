@@ -10,17 +10,17 @@
 using namespace std;
 
 
-template <typename T,typename V = T>
-    void init_array(T& arr, V inicio,V step){
-        for (V i = 0; i < std::size(arr); i ++) {
+template <typename T>
+    void init_array(T& arr, int inicio = 0,int step = 1){
+        for (auto i = 0; i < std::size(arr); i ++) {
             arr[i] = inicio + i * step;
         }
     }
 
-template <typename T,typename V = T>
-    void init_array(T& arr, V inicio,V final,V step){
-        for (V i = 0; i < std::size(arr); i ++) {
-            V value = inicio + i * step;
+template <typename T>
+    void init_array(T& arr, int inicio,int final,int step){
+        for (auto i = 0; i < std::size(arr); i ++) {
+            auto value = inicio + i * step;
 
             if(value >= final)
                 break;

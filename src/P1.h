@@ -10,7 +10,7 @@
 using namespace std;
 
 template<typename T = string>
-T input(std::string label = ""){
+T input(const std::string &label = ""){
     T buffer;
     cout << label;
     cin >> buffer;

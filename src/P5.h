@@ -8,18 +8,20 @@
 
 //Funcion si solo queda un argumento
 template <typename T>
-T suma_producto(T a) {
+auto suma_producto(T a) {
     return a;
 }
 
 
+template <typename T,typename R>
+auto suma_producto(T a,R b) {
+    return a * b;
+}
+
 //Ejecutar suma de productos
 template <typename U,typename V, typename ...Args>
 auto suma_producto(U a, V b,Args... args) {
-    if constexpr (sizeof...(args) == 0) //Condicion en compilacion
-        return (a * b);
-    else
-        return (a * b) + suma_producto(args...);
+     return (a * b) + suma_producto(args...);
 }
 
 void P5();

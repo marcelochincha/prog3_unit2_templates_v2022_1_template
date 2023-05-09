@@ -10,16 +10,14 @@
 #include <type_traits>
 using namespace std;
 
-template <typename P, typename ...Args, typename T>
+template <typename R, typename ...Args, typename T>
 int index_of(T arg,int index = 0){
-    //cout << "Index: " << index << endl;
-    if(is_same<P,T>::value){
-        //cout << "P equals T" << endl;
+    if constexpr(is_same<T,R>())
         return index;
-    }else if (sizeof...(Args) == 0){
-        return -1;
-    }
-    return index_of<Args...,T>(arg,index + 1);
+    else if constexpr (sizeof...(Args) > 0)
+        return index_of<Args...>(arg,index+1); 
+    else 
+        return -1;    
 }
 
 void P6();

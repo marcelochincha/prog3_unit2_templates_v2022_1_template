@@ -10,7 +10,7 @@
 using namespace std;
 
 template<typename Iter>
-void print(Iter vI, Iter vF,ostream &os,string delimiter){
+void print(Iter vI, Iter vF,ostream &os, const string &delimiter){
     for (auto i = vI; i != vF; i++) {
         if (i != vI)
             os << delimiter;
